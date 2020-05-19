@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import CustomButton from '../custom-button/custom-button.component';
+import FormInput from '../form-input/form-input.component';
+
 import './sign-in.styles.scss';
 
 class SignIn extends Component {
@@ -24,24 +27,23 @@ class SignIn extends Component {
 				<span>Sign in with your email and password</span>
 
 				<form onSubmit={this.handleSubmit}>
-					<input
+					<FormInput
 						name="email"
 						type="email"
-						placeholder="Please enter your email"
+						handleChange={this.handleChange}
 						value={this.state.email}
+						label="Email"
 						required
-						onChange={this.handleChange}
-					/>
-					<label>Email</label>
-					<input
+					></FormInput>
+					<FormInput
 						name="password"
 						type="password"
-						placeholder="Please enter your password"
+						handleChange={this.handleChange}
 						value={this.state.password}
+						label="Password"
 						required
-						onChange={this.handleChange}
-					/>
-					<label>Password</label>
+					></FormInput>
+					<CustomButton type="submit">SIGN IN</CustomButton>
 				</form>
 			</div>
 		);
