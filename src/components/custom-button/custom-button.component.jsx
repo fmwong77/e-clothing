@@ -7,7 +7,6 @@ const CustomButton = ({
 	inverted,
 	...otherProps
 }) => {
-	console.log(children);
 	return (
 		<button
 			className={`${inverted ? 'inverted' : ''} ${
