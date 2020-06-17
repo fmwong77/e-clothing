@@ -22,11 +22,13 @@ export const fetchCollectionsFailure = () => ({
 	type: ShopActionTypes.FETCH_COLLECTIONS_FAILURE,
 });
 
-export const fetchCollectionStartAsync = (collectionsMap) => {
+export const fetchCollectionsStartAsync = () => {
 	return (dispatch) => {
 		const collectionRef = firestore.collection('collections');
+		dispatch(fetchCollectionsStart());
 		collectionRef
-			.onSnapshot(async (snapShot) => {
+			.get()
+			.then((snapShot) => {
 				const collectionMaps = convertCollectionsSnapshotToMap(snapShot);
 				dispatch(fetchCollectionsSuccess(collectionMaps));
 			})

@@ -74,14 +74,14 @@ class ShopPage extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-	isFetchingCollections: selectIsCollectionFetching,
+	// isFetchingCollections: selectIsCollectionFetching,
 	isCollectionsLoaded: selectIsCollectionsLoaded,
 });
 
 const mapDispatchToProps = (dispatch) => ({
 	// updateCollections: (collectionsMap) =>
 	// 	dispatch(updateCollections(collectionsMap)),
-	fetchCollectionsStartAsync: dispatch(fetchCollectionsStartAsync()),
+	fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
